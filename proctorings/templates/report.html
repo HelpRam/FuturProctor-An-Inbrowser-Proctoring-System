@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuturProctor - Cheating Detection Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0e4c92, #4a90e2);
+            color: #ffffff;
+            min-height: 100vh;
+            font-size: 1.2rem; /* Increased font size */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px; /* Increased padding */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 50px;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+        .cheating-type-icon {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        .overall-verdict {
+            font-size: 1.8rem; /* Increased size for overall verdict */
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .list-group-item {
+            font-size: 1.2rem; /* Increased font size for list items */
+        }
+        .badge {
+            font-size: 1rem; /* Increased font size for badges */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-5">FuturProctor Cheating Detection Report</h1>
+        
+        <div class="overall-verdict bg-{{ context.verdict_color }}">
+            {{ context.overall_verdict }} ({{ context.cheating_percentage }}% suspicious activity)
+        </div>
+
+        <!-- Overall and Cheating Types Statistics -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Overall Statistics</h5>
+                        <canvas id="overallChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Cheating Types Breakdown</h5>
+                        <canvas id="cheatingTypesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Cheating Analysis -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Detailed Cheating Analysis</h5>
+                <ul class="list-group list-group-flush">
+                    {% for cheat_type, count in context.cheating_types.items %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent text-white">
+                            <span>
+                                {% if cheat_type == 'No Face Detected' %}
+                                    <i class="fas fa-user-slash cheating-type-icon"></i>
+                                {% elif cheat_type == 'Multiple Faces' %}
+                                    <i class="fas fa-users cheating-type-icon"></i>
+                                {% elif cheat_type == 'Unauthorized Objects' %}
+                                    <i class="fas fa-ban cheating-type-icon"></i>
+                                {% elif cheat_type == 'Suspicious Head Movement' %}
+                                    <i class="fas fa-head-side-virus cheating-type-icon"></i>
+                                {% elif cheat_type == 'Suspicious Audio' %}
+                                    <i class="fas fa-volume-up cheating-type-icon"></i>
+                                {% endif %}
+                                {{ cheat_type }}
+                            </span>
+                            <span class="badge bg-primary rounded-pill">{{ count }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Object Detection Summary -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Detected Objects</h5>
+                <ul class="list-group list-group-flush">
+                    {% for obj, count in context.object_detection_count.items %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent text-white">
+                            <span>{{ obj }}</span>
+                            <span class="badge bg-primary rounded-pill">{{ count }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <p class="text-center mt-4">Report generated on: {{ context.timestamp }}</p>
+    </div>
+    <h2 class="text-center my-4">Detailed Cheating Report</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover" style="border-collapse: separate; border-spacing: 0 10px; background-color: #ffffff; color: #000000;">
+            <thead class="thead-dark">
+                <tr style="background-color: #343a40; color: white;">
+                    <th style="padding: 15px;">User</th>
+                    <th style="padding: 15px;">Time</th>
+                    <th style="padding: 15px;">Status</th>
+                    <th style="padding: 15px;">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr class="{% if log.status == 'Cheating Detected' %}table-danger{% else %}table-light{% endif %}" style="background-color: {% if log.status == 'Cheating Detected' %}#f8d7da{% else %}#f9f9f9{% endif %}; color: #000;">
+                    <td style="padding: 12px;">{{ log.user }}</td>
+                    <td style="padding: 12px;">{{ log.time|date:"F j, Y, g:i a" }}</td> <!-- Formatting the datetime -->
+                    <td style="padding: 12px;">{{ log.status }}</td>
+                    <td style="padding: 12px;">{{ log.details }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center" style="padding: 15px;">No logs found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    
+    <!-- Charts for Statistics -->
+    <script>
+        // Overall Statistics Pie Chart
+        var ctxOverall = document.getElementById('overallChart').getContext('2d');
+        var overallChart = new Chart(ctxOverall, {
+            type: 'pie',
+            data: {
+                labels: ['No Cheating Detected', 'Cheating Detected'],
+                datasets: [{
+                    data: [{{ context.no_cheating_detected }}, {{ context.cheating_detected }}],
+                    backgroundColor: ['#4CAF50', '#F44336'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: 'white', // Set legend label color to white
+                        },
+                    },
+                    title: {
+                        display: true,
+                        text: 'Overall Cheating Detection',
+                        color: 'white',
+                        font: {
+                            color: 'white', // Set title color to white
+                        }
+                    }
+                }
+            }
+        });
+    
+        // Cheating Types Breakdown Doughnut Chart
+        var ctxTypes = document.getElementById('cheatingTypesChart').getContext('2d');
+        var cheatingTypesChart = new Chart(ctxTypes, {
+            type: 'doughnut',
+            data: {
+                labels: [{% for cheat_type in context.cheating_types %}'{{ cheat_type }}',{% endfor %}],
+                datasets: [{
+                    data: [{% for count in context.cheating_types.values %}{{ count }},{% endfor %}],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: 'white', // Set legend label color to white
+                        },
+                    },
+                    title: {
+                        display: true,
+                        text: 'Cheating Types Distribution',
+                        color: 'white',
+                        font: {
+                            color: 'white', // Set title color to white
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

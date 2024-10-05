@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proctoring Report</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Optional: link to CSS file -->
+<style>
+    table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+</style>
+</head>
+<body>
+    <h1>Proctoring Report</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.user }}</td>
+                <td>{{ log.time|date:"F j, Y, g:i a" }}</td>  <!-- Formatting the datetime -->
+                <td>{{ log.status }}</td>
+                <td>{{ log.details }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No logs found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

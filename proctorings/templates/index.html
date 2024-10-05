@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuturProctor - Advanced In-Browser Proctoring</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50e3c2;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: var(--light-color);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: rgba(44, 62, 80, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--secondary-color) !important;
+        }
+
+        .nav-link {
+            color: var(--light-color) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .hero-section {
+            background: url('https://source.unsplash.com/random/1600x900/?technology') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content p.lead {
+            margin-bottom: 2rem;
+        }
+        
+        .hero-image {
+            margin-top: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--secondary-color);
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--light-color);
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--light-color);
+        }
+
+        #webcam-stream {
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(80, 227, 194, 0.5);
+        }
+
+        #captured-photo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--secondary-color);
+            display: none;
+        }
+
+        .info-message {
+            color: var(--secondary-color);
+        }
+
+        #error-message {
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">FuturProctor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light ms-2" href="#" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content text-center">
+            <h1 class="hero-title">Welcome to FuturProctor</h1>
+            <p class="hero-subtitle">The Next Generation of In-Browser Proctoring</p>
+            <p class="lead">Ensure exam integrity with our advanced technology that guarantees a fair and secure testing environment.</p>
+            <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Get Started <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+            <a href="#features" class="btn btn-outline-light btn-lg ms-2">
+                Learn More <i class="fas fa-info-circle ms-2"></i>
+            </a>
+        
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Features</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Advanced Security</h3>
+                    <p>State-of-the-art face recognition technology ensures exam integrity.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-tachometer-alt feature-icon"></i>
+                    <h3>Real-time Monitoring</h3>
+                    <p>Continuous surveillance during the entire examination process.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h3>User-Friendly</h3>
+                    <p>Intuitive interface for both students and proctors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Student Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form id="login-form" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <p class="info-message mb-3">Your Gmail address before @ sign is your default username and password.</p>
+                                <div id="error-message" class="mb-3" style="display: none;"></div>
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Email:</label>
+                                    <input type="text" id="username" name="email" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password:</label>
+                                    <input type="password" id="password" name="password" class="form-control" required>
+                                </div>
+                                <input type="hidden" id="captured_photo_input" name="captured_photo">
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="mb-3">Face Recognition</h5>
+                            <div class="position-relative">
+                                <img id="webcam-stream" src="{% url 'video_feed' %}" alt="Video Feed" class="img-fluid" />
+                                <canvas id="canvas" style="display:none;"></canvas>
+                                <img id="captured-photo" alt="Captured Photo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="take-photo-btn" class="btn btn-info">Take Photo</button>
+                    <button type="submit" class="btn btn-primary" id="login-btn">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Your existing JavaScript code here
+        const img = document.getElementById('webcam-stream');
+        const takePhotoBtn = document.getElementById('take-photo-btn');
+        const canvas = document.getElementById('canvas');
+        const capturedPhoto = document.getElementById('captured-photo');
+        const capturedPhotoInput = document.getElementById('captured_photo_input');
+        const errorMessage = document.getElementById('error-message');
+
+        let photoCaptured = false;
+
+        takePhotoBtn.addEventListener('click', function () {
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            const context = canvas.getContext('2d');
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            const photoData = canvas.toDataURL('image/png');
+
+            capturedPhoto.src = photoData;
+            capturedPhoto.style.display = 'block';
+
+            capturedPhotoInput.value = photoData;
+            photoCaptured = true;
+            errorMessage.style.display = 'none';
+        });
+
+        document.getElementById('login-btn').addEventListener('click', function (event) {
+            if (!photoCaptured) {
+                event.preventDefault();
+                errorMessage.textContent = "Please capture your photo before logging in.";
+                errorMessage.style.display = 'block';
+            } else {
+                document.getElementById('login-form').submit();
+            }
+        });
+    </script>
+</body>
+
+</html>

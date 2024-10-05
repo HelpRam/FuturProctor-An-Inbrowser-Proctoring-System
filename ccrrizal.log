@@ -1,0 +1,4 @@
+{'time': '20:50:02', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '20:50:12', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.9074088931083679)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '20:50:22', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8973134160041809)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '20:50:32', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.9165768027305603)], Head Pose: No head detected., Audio: No suspicious audio detected"}

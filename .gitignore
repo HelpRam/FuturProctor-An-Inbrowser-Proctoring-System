@@ -1,0 +1,12 @@
+# Ignore virtual environment
+venv/
+
+# Ignore JSON files from specific directories
+proctorings/decent-envoy-436203-c9-12ca1b81977a.json
+proctorings/decent-envoy-436203-c9-ab5ba84d0fcb.json
+proctorings/dummy_data/ai.json
+
+# Ignore AI and object detection models
+ai.json
+object_detection_model/
+shape_predictor_model/

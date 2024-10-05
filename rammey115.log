@@ -1,0 +1,94 @@
+{'time': '23:57:50', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.726445198059082)], Head Pose: -1, Audio: No suspicious audio detected"}
+{'time': '23:58:00', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8492265343666077)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:58:10', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8348129391670227)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:58:20', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8956031799316406)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:58:30', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.896803617477417)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:58:40', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.6943075656890869)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:58:50', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8779019117355347)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:59:00', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.9161299467086792)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:59:10', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8593930602073669)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:59:20', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.877660870552063)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:59:30', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.9012295007705688)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:59:40', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.9001449942588806)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '23:59:50', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.9029691815376282)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:23:24', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8046797513961792)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:23:34', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:23:44', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: Head Up, Audio: No suspicious audio detected'}
+{'time': '14:23:54', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:24:04', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.5966172814369202)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:24:14', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7497849464416504)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:24:24', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: Head Down, Audio: No suspicious audio detected'}
+{'time': '14:24:34', 'status': 'No Cheating Detected', 'details': 'Face Count: 0, Detected Objects: [], Head Pose: No head detected., Audio: No suspicious audio detected'}
+{'time': '14:24:44', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8360235691070557), ('tv', 0.6939924955368042)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:24:54', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('tv', 0.6615710854530334), ('person', 0.5182142853736877)], Head Pose: -1, Audio: No suspicious audio detected"}
+{'time': '14:25:04', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8309630751609802)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:25:14', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.6244322061538696)], Head Pose: Head Down, Audio: No suspicious audio detected"}
+{'time': '14:25:24', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7723922729492188)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:25:34', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:25:44', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8482561707496643)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '14:25:54', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8579487800598145)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:26:04', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7582932114601135), ('cell phone', 0.6608970761299133), ('person', 0.516750156879425)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:26:14', 'status': 'Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: Suspicious audio detected'}
+{'time': '14:26:24', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('airplane', 0.5612446069717407)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:26:34', 'status': 'Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: Suspicious audio detected'}
+{'time': '14:26:44', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: Head Up, Audio: No suspicious audio detected'}
+{'time': '14:26:54', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:27:04', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.5855208039283752)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:27:14', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7289543747901917)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '14:27:24', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7412908673286438)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:27:34', 'status': 'Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: Suspicious audio detected'}
+{'time': '14:27:44', 'status': 'Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.6742813587188721), ('person', 0.523573637008667)], Head Pose: -1, Audio: Suspicious audio detected"}
+{'time': '14:29:05', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.6573780179023743)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '14:29:15', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:29:25', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.6932067275047302)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '14:29:35', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7866640686988831)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '14:29:45', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7889971137046814)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:30:55', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:31:05', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('cat', 0.6682577133178711)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:31:15', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7167184948921204), ('person', 0.5185702443122864)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:31:25', 'status': 'Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: Head Up, Audio: Suspicious audio detected'}
+{'time': '14:31:35', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.6279016733169556)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '14:31:45', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.6777042150497437)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:31:55', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.6907296180725098)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '14:32:05', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.7598167061805725)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:33:18', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: Head Down, Audio: No suspicious audio detected'}
+{'time': '14:33:28', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:33:38', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:33:48', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('donut', 0.5396220088005066)], Head Pose: -1, Audio: No suspicious audio detected"}
+{'time': '14:33:58', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:34:08', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:34:18', 'status': 'Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.5590370893478394)], Head Pose: -1, Audio: Suspicious audio detected"}
+{'time': '14:34:28', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: Head Up, Audio: No suspicious audio detected'}
+{'time': '14:34:38', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:34:48', 'status': 'Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: Suspicious audio detected'}
+{'time': '14:34:58', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:35:08', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.673109769821167)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:35:18', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:35:28', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '14:35:38', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.739986777305603)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:35:48', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.821533739566803)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '14:35:58', 'status': 'Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: Suspicious audio detected'}
+{'time': '15:21:39', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '15:21:49', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '15:21:59', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('cat', 0.7773640751838684)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '15:22:09', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.5548657774925232)], Head Pose: -1, Audio: No suspicious audio detected"}
+{'time': '15:22:19', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '15:42:43', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: -1, Audio: No suspicious audio detected'}
+{'time': '15:42:53', 'status': 'No Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('person', 0.8824923038482666)], Head Pose: No head detected., Audio: No suspicious audio detected"}
+{'time': '15:43:03', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.8206077218055725)], Head Pose: -1, Audio: No suspicious audio detected"}
+{'time': '15:43:13', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.7389390468597412)], Head Pose: Head Up, Audio: No suspicious audio detected"}
+{'time': '15:20:55', 'status': 'Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.7376514673233032)], Head Pose: Head Down, Audio: Suspicious audio detected"}
+{'time': '15:21:05', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.6896795034408569)], Head Pose: -1, Audio: No suspicious audio detected"}
+{'time': '15:21:15', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.7829222083091736)], Head Pose: Head Down, Audio: No suspicious audio detected"}
+{'time': '15:21:25', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.8918405771255493)], Head Pose: Head Down, Audio: No suspicious audio detected"}
+{'time': '15:21:35', 'status': 'No Cheating Detected', 'details': 'Face Count: 1, Detected Objects: [], Head Pose: Head Down, Audio: No suspicious audio detected'}
+{'time': '15:21:45', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.6112836599349976)], Head Pose: -1, Audio: No suspicious audio detected"}
+{'time': '15:21:55', 'status': 'Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('cell phone', 0.8016400337219238), ('person', 0.7593835592269897)], Head Pose: Head Down, Audio: No suspicious audio detected"}
+{'time': '15:22:05', 'status': 'Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.8105430006980896)], Head Pose: -1, Audio: Suspicious audio detected"}
+{'time': '15:22:15', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.8558489084243774)], Head Pose: Head Down, Audio: No suspicious audio detected"}
+{'time': '15:22:25', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.8782366514205933)], Head Pose: -1, Audio: No suspicious audio detected"}
+{'time': '15:22:35', 'status': 'Cheating Detected', 'details': "Face Count: 0, Detected Objects: [('cat', 0.5810949206352234)], Head Pose: No head detected., Audio: Suspicious audio detected"}
+{'time': '15:22:45', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.9024890065193176)], Head Pose: Head Down, Audio: No suspicious audio detected"}
+{'time': '15:22:55', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.8871735334396362)], Head Pose: Head Down, Audio: No suspicious audio detected"}
+{'time': '15:23:05', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.8765168190002441)], Head Pose: Head Down, Audio: No suspicious audio detected"}
+{'time': '15:23:15', 'status': 'No Cheating Detected', 'details': "Face Count: 1, Detected Objects: [('person', 0.8930720686912537)], Head Pose: Head Up, Audio: No suspicious audio detected"}

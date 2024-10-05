@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuturProctor - Home</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50e3c2;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: var(--light-color);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: rgba(44, 62, 80, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            position: relative; /* Make sure the navbar is positioned correctly */
+       
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--secondary-color) !important;
+        }
+
+        .nav-link {
+            color: var(--light-color) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        
+        .btn-danger {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .left-content, .right-content {
+            flex-basis: 100%;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .left-content {
+                flex-basis: 55%;
+            }
+            .right-content {
+                flex-basis: 40%;
+            }
+        }
+
+        .photo-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .photo-title {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-menu {
+            background-color: var(--dark-color);
+            border: none;
+            z-index: 1050; /* Higher than the rest of the content */
+        }
+
+        .dropdown-item {
+            color: var(--light-color);
+            z-index: 1050; /* Higher than the rest of the content */
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
+            z-index: 1050; /* Higher than the rest of the content */
+        }
+
+        .user-info-list, .form-response-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .user-info-list li, .form-response-card {
+            color: var(--light-color);
+        }
+
+        .form-response-card {
+            border: 1px solid var(--secondary-color);
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-section h1 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .welcome-section h3 {
+            font-size: 1.5rem;
+            color: var(--light-color);
+        }
+        .navbar-nav .dropdown-menu {
+            z-index: 1050; /* Higher than the rest of the content */
+            position: absolute; /* Ensures dropdown opens on top of other elements */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">FuturProctor</a>
+            
+            <form method="POST" action="{% url 'exam_page' username=username %}" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="username" value="{{ username }}">
+                <button type="submit" class="btn btn-outline-light">Go to Exam</button>
+            </form>
+            
+        <!-- New "Generate Report" Button -->
+        {% comment %} <a href="{% url 'reports' %}" class="navbar-brand btn btn-link text-white p-0">User Report</a> {% endcomment %}
+        {% if user_info.is_staff %}
+        <form method="POST" action="{% url 'reports' %}" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-light">View Report</button>
+        </form>
+        {%endif%}
+        
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userInfoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle me-1"></i> User Info
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="userInfoDropdown">
+                            <li>
+                                <div class="dropdown-item">
+                                    <h6>User Information</h6>
+                                    <div id="userInfoContent">
+                                        {% if user_info %}
+                                            <ul class="user-info-list">
+                                                {% for field, value in user_info.items %}
+                                                    <li><strong>{{ field }}:</strong> {{ value }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% else %}
+                                            <div class="alert alert-warning">
+                                                No user information found.
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="formResponsesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-clipboard-list me-1"></i> Form Responses
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="formResponsesDropdown">
+                            <li>
+                                <div class="dropdown-item">
+                                    <h6>Form Responses</h6>
+                                    <div id="formResponsesContent">
+                                        {% if form_responses %}
+                                            <div class="row">
+                                                {% for response in form_responses %}
+                                                    <div class="col-12 mb-3">
+                                                        <div class="card form-response-card">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">{{ response.name }}</h5>
+                                                                <p class="card-text"><strong>Address:</strong> {{ response.address }}</p>
+                                                                <p class="card-text"><strong>Email:</strong> {{ response.email }}</p>
+                                                                <p class="card-text"><strong>Timestamp:</strong> {{ response.timestamp }}</p>
+                                                                <p class="card-text"><strong>Feedback:</strong> {{ response.feedback }}</p>
+                                                                <p class="card-text"><strong>Photo:</strong> {% if response.photo %}<a href="{{ response.photo.url }}" target="_blank">View Photo</a>{% else %}No Photo{% endif %}</p>
+                                                                <p class="card-text"><strong>CV:</strong> {% if response.cv %}<a href="{{ response.cv.url }}" target="_blank">View CV</a>{% else %}No CV{% endif %}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            <div class="alert alert-info">
+                                                No form responses found.
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-info-circle me-1"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}"><i class="fas fa-envelope me-1"></i> Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-sign-out-alt me-1"></i> Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1>Welcome to FuturProctor</h1>
+            <h3>You are logged in as <strong>{{ username }}</strong></h3>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main-content">
+            <!-- Left Column: Terms and Conditions -->
+            <div class="left-content">
+                <h2 class="mb-4"><i class="fas fa-file-contract me-2"></i>Terms and Conditions</h2>
+                <p>Welcome to FuturProctor, the cutting-edge online proctoring system. Before proceeding with your exam, please review our terms and conditions:</p>
+                <ol>
+                    <li>You agree to be monitored via webcam throughout the duration of the exam.</li>
+                    <li>Any attempt to cheat or use unauthorized resources will result in immediate disqualification.</li>
+                    <li>Your captured photo and exam responses will be stored securely and used only for verification purposes.</li>
+                    <li>You are required to maintain a stable internet connection throughout the exam.</li>
+                    <li>In case of technical difficulties, please contact our support team immediately.</li>
+                </ol>
+                <p>By proceeding to the exam, you acknowledge that you have read and agreed to these terms.</p>
+            </div>
+
+            <!-- Right Column: Photos -->
+            <div class="right-content">
+                <!-- Recognized Photo -->
+                <div class="photo-box">
+                    <h4 class="photo-title"><i class="fas fa-camera me-2"></i>Recognized Photo</h4>
+                    <div class="captured-photo">
+                        {% if captured_photo %}
+                            <img src="{{ captured_photo }}" alt="Captured Photo" class="img-fluid" />
+                        {% else %}
+                            <div class="alert alert-warning">No captured photo found.</div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Actual Photo -->
+                <div class="photo-box">
+                    <h4 class="photo-title"><i class="fas fa-id-card me-2"></i>Actual Photo</h4>
+                    {% if form_responses %}
+                        {% for response in form_responses %}
+                            <div class="form-response-photo">
+                                {% if response.photo %}
+                                    <img src="{{ response.photo.url }}" alt="Form Response Photo" class="img-fluid" />
+                                {% else %}
+                                    <div class="alert alert-info">No Photo Available</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="alert alert-info">No form responses found.</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
