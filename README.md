@@ -1,4 +1,4 @@
-# Check Code to Master Branch
+# Check Master Branch for Source Code:
 # **FuturProctor: An In-Browser Proctoring System**
 
 FuturProctor is an advanced **web-based proctoring system** designed to **ensure integrity** during online exams and interviews. By integrating artificial intelligence (AI) with education, the system provides a robust solution for preventing cheating and ensuring fair assessments.
