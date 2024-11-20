@@ -7,8 +7,7 @@ Leveraging cutting-edge technologies such as **YOLOv8 (object detection)**, **dl
 
 FuturProctor blends the power of AI with educational integrity to ensure that both exams and interviews are conducted securely.
 
----
-!(Screenshot 2024-11-21 003256.png)
+Screenshot 2024-11-21 003256.png
 
 ## 🚀 **Features**
 
